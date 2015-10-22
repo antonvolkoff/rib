@@ -1,7 +1,17 @@
 namespace :rib do
   desc "Fetch 50 packages"
   task fetch: :environment do
+    puts "Fetching list of packages..."
     packages = RProject.new.packages(50)
-    packages.each { |package| Package.create_from_package_info!(package) }
+    print "Storing packages"
+    packages.each do |package|
+      print "."
+      begin
+        StorePackage.call(info: package)
+      rescue Exception => e
+        puts "Error with #{package["Package"]}: #{e}"
+      end
+    end
+    puts "Done"
   end
 end
