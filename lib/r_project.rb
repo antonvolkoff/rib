@@ -2,11 +2,8 @@ require 'open-uri'
 require 'dcf'
 
 class RProject
-  def intitialize
-  end
-
-  def packages
-    parsed_packages
+  def packages(limit = nil)
+    limit.nil? ? parsed_packages : parsed_packages.take(limit)
   end
 
   private

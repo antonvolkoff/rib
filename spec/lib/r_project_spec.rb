@@ -31,8 +31,16 @@ NeedsCompilation: no
       allow(r_project).to receive(:fetch_package_list).and_return(packages)
     end
 
-    it 'returns list of current packages' do
-      expect(r_project.packages).to eq(parsed_packages)
+    context 'when limit is given' do
+      it 'returns limited list of current packages' do
+        expect(r_project.packages(1)).to eq(parsed_packages.take(1))
+      end
+    end
+
+    context 'when limit is not given' do
+      it 'returns list of current packages' do
+        expect(r_project.packages).to eq(parsed_packages)
+      end
     end
   end
 end
