@@ -17,7 +17,7 @@ gem 'treetop-dcf'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'fabricator'
+  gem 'fabrication'
   gem 'pry'
 end
 
