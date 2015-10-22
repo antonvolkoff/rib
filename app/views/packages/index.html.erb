@@ -1,0 +1,8 @@
+<h1>Packages</h1>
+
+<% @packages.each do |package| %>
+<div class="package">
+  <h3><%= package.name %></h3>
+  <div class="package-version">Version: <%= package.current_version %> </div>
+</div>
+<% end %>
