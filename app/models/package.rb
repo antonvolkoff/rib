@@ -10,4 +10,8 @@ class Package < ActiveRecord::Base
       payload:          info
     )
   end
+
+  def version
+    versions.find_by_version(current_version)
+  end
 end

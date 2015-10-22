@@ -4,5 +4,8 @@
 <div class="package">
   <h3><%= package.name %></h3>
   <div class="package-version">Version: <%= package.current_version %> </div>
+  <div class="description">
+    <%= package.version.payload["Description"] if package.version %>
+  </div>
 </div>
 <% end %>
