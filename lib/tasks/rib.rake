@@ -1,8 +1,9 @@
 namespace :rib do
   desc "Fetch 50 packages"
-  task fetch: :environment do
+  task :fetch, [:limit] => :environment do |t, args|
+    args.with_defaults(limit: 50)
     puts "Fetching list of packages..."
-    packages = RProject.new.packages(50)
+    packages = RProject.new.packages(args[:limit].to_i)
 
 
     puts "Storing packages..."
