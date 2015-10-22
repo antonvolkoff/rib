@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Rib
   class Application < Rails::Application
+    config.autoload_paths << "#{config.root}/lib"
+
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|
