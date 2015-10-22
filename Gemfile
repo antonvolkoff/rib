@@ -15,6 +15,7 @@ gem 'turbolinks'
 gem 'treetop-dcf'
 gem 'interactor-rails'
 gem 'parallel'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'
