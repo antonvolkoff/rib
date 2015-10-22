@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe RProject do
+describe RProject::List do
   let(:packages) do
     <<-PACKAGE
 Package: A3
@@ -26,7 +26,7 @@ NeedsCompilation: no
   end
 
   describe '.packages' do
-    subject(:r_project) { RProject.new }
+    subject(:r_project) { RProject::List.new }
     before do
       allow(r_project).to receive(:fetch_package_list).and_return(packages)
     end
