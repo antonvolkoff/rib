@@ -12,11 +12,13 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'treetop-dcf'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'fabricator'
+  gem 'pry'
 end
 
 group :development do
