@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'treetop-dcf'
 gem 'interactor-rails'
+gem 'parallel'
 
 group :development, :test do
   gem 'byebug'

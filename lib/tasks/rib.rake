@@ -3,15 +3,16 @@ namespace :rib do
   task fetch: :environment do
     puts "Fetching list of packages..."
     packages = RProject.new.packages(50)
-    print "Storing packages"
-    packages.each do |package|
-      print "."
+
+
+    puts "Storing packages..."
+    Parallel.each(packages) do |package|
+      puts "#{package["Package"]} [Done]"
       begin
         StorePackage.call(info: package)
       rescue Exception => e
-        puts "Error with #{package["Package"]}: #{e}"
+        puts "#{package["Package"]} [Error] #{e}"
       end
     end
-    puts "Done"
   end
 end
